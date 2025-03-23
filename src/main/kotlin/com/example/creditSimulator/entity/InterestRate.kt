@@ -1,4 +1,4 @@
-package domain.entity
+package com.example.creditSimulator.entity
 
 
 class InterestRate {

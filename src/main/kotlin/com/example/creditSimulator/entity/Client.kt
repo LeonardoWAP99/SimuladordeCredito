@@ -1,4 +1,4 @@
-package domain.entity
+package com.example.creditSimulator.entity
 
 import java.time.Clock
 import java.time.LocalDate

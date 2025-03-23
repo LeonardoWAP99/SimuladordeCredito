@@ -1,17 +1,18 @@
-package domain.entity
+package com.example.creditSimulator.entity
 
 import java.math.BigDecimal
 import java.math.RoundingMode
+import com.example.creditSimulator.dto.LoanResponse
 
 class Loan(
     private val interestRate: BigDecimal,
     private val loanAmount: BigDecimal,
     private val  paymentMonths: Int
     ) {
-         fun calculateCredit(): Triple<BigDecimal, BigDecimal, BigDecimal> {
+         fun calculateCredit(): LoanResponse{
              // Convert annual interest rate to monthly interest rate
              val monthlyInterestRate = interestRate.divide(BigDecimal("100"), 10, RoundingMode.HALF_EVEN)
-                                                    .divide(BigDecimal("12"), 10, RoundingMode.HALF_EVEN)
+                                                    .divide(BigDecimal( "12"), 10, RoundingMode.HALF_EVEN)
 
              // Calculates the total amount that will be multiplied by the monthly interest rate
              val numerator = loanAmount.multiply(monthlyInterestRate)
@@ -38,7 +39,7 @@ class Loan(
              val totalInterest = totalPaid - loanAmount
 
              // Retorna o pagamento mensal, o total pago e o total de juros pagos
-             return Triple(monthlyPayment, totalPaid.round(), totalInterest.round())
+             return LoanResponse(totalPaid.round(), monthlyPayment,  totalInterest.round())
          }
 
     // BigDecimal to 2 decimal places, using the HALF_EVEN rounding method (bank rounding).

@@ -1,5 +1,6 @@
 package domain.entity
 
+import com.example.creditSimulator.entity.InterestRate
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*

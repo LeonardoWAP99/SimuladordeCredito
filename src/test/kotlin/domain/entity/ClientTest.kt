@@ -1,5 +1,6 @@
 package domain.entity
 
+import com.example.creditSimulator.entity.Client
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import java.time.Clock

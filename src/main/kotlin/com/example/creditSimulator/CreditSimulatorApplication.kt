@@ -1,7 +1,7 @@
 package com.example.creditSimulator
 
-import domain.entity.InterestRate
-import domain.entity.Client
+import com.example.creditSimulator.entity.InterestRate
+import com.example.creditSimulator.entity.Client
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import java.time.LocalDate
