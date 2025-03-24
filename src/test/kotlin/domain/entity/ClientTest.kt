@@ -15,11 +15,11 @@ class ClientTest{
 
         val fixedClock = Clock.fixed(Instant.parse("2025-05-11T00:00:00Z"), ZoneId.of("UTC"))
 
-        val client = Client(birthDate, fixedClock)
+        val client = Client(birthDate)
 
         val expectedAge = 26
 
-        assertEquals(expectedAge, client.getAge(), "A idade calculada está incorreta")
+        assertEquals(expectedAge, client.getAge(fixedClock), "A idade calculada está incorreta")
     }
     @Test
     fun `test getAge when birthday is yet to come this year`() {
@@ -27,11 +27,11 @@ class ClientTest{
 
         val fixedClock = Clock.fixed(Instant.parse("2025-01-10T00:00:00Z"), ZoneId.of("UTC"))
 
-        val client = Client(birthDate, fixedClock)
+        val client = Client(birthDate)
 
         val expectedAge = 25
 
-        assertEquals(expectedAge, client.getAge(), "A idade calculada está incorreta")
+        assertEquals(expectedAge, client.getAge(fixedClock), "A idade calculada está incorreta")
     }
     @Test
     fun `test getAge() when birthday is in a leap year and has occurred`() {
@@ -39,9 +39,9 @@ class ClientTest{
 
         val fixedClock = Clock.fixed(Instant.parse("2024-03-01T00:00:00Z"), ZoneId.of("UTC"))
 
-        val client = Client(birthDate, fixedClock)
+        val client = Client(birthDate)
 
         val expectedAge = 24 // Já fez 24 anos
-        assertEquals(expectedAge, client.getAge(), "A idade calculada está incorreta")
+        assertEquals(expectedAge, client.getAge(fixedClock), "A idade calculada está incorreta")
     }
 }

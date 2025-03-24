@@ -2,6 +2,7 @@ package com.example.creditSimulator.entity
 
 import java.math.BigDecimal
 import java.math.RoundingMode
+
 import com.example.creditSimulator.dto.LoanResponse
 
 class Loan(
@@ -11,8 +12,7 @@ class Loan(
     ) {
          fun calculateCredit(): LoanResponse{
              // Convert annual interest rate to monthly interest rate
-             val monthlyInterestRate = interestRate.divide(BigDecimal("100"), 10, RoundingMode.HALF_EVEN)
-                                                    .divide(BigDecimal( "12"), 10, RoundingMode.HALF_EVEN)
+             val monthlyInterestRate = interestRate.divide(BigDecimal( "12"), 10, RoundingMode.HALF_EVEN)
 
              // Calculates the total amount that will be multiplied by the monthly interest rate
              val numerator = loanAmount.multiply(monthlyInterestRate)

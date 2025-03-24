@@ -16,8 +16,4 @@ class LoanController(@Autowired val loanService: LoanService) {
         return loanService.calculateLoan(loanRequest)
     }
 
-    @GetMapping("/hello")
-    fun hello(): String{
-        return "hello, client"
-    }
 }
