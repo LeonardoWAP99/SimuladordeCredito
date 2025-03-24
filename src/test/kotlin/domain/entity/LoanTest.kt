@@ -10,9 +10,9 @@ class LoanTest {
     @Test
     fun `when interest rate is 0,05 per year and loan is 10000,00 for 24 months then monthly payment should calculate correctly `() {
         val interestRate = BigDecimal(0.05)
-        val loanAmount = BigDecimal(10000)
+        val totalLoanAmount = BigDecimal(10000)
         val paymentMonths = 24
-        val loan = Loan(interestRate, loanAmount, paymentMonths)
+        val loan = Loan(interestRate, totalLoanAmount, paymentMonths)
         val (totalPaid, monthlyPayment, totalInterest) = loan.calculateCredit()
 
         assertEquals(BigDecimal(438.71).setScale(2, RoundingMode.HALF_EVEN), monthlyPayment)
@@ -23,9 +23,9 @@ class LoanTest {
     @Test
     fun `when interest rate is 0,055 per year and loan is 10000,00 for 24 months then monthly payment should calculate correctly`() {
         val interestRate = BigDecimal(0.055)
-        val loanAmount = BigDecimal(10000.00)
+        val totalLoanAmount = BigDecimal(10000.00)
         val paymentMonths = 24
-        val loan = Loan(interestRate, loanAmount, paymentMonths)
+        val loan = Loan(interestRate, totalLoanAmount, paymentMonths)
         val (totalPaid, monthlyPayment, totalInterest) = loan.calculateCredit()
 
         assertEquals(BigDecimal(440.96).setScale(2, RoundingMode.HALF_EVEN), monthlyPayment)
@@ -36,9 +36,9 @@ class LoanTest {
     @Test
     fun `when interest rate is 0,03 per year and loan is 10000,00 for 24 months then monthly payment should calculate correctly`() {
         val interestRate = BigDecimal(0.03)
-        val loanAmount = BigDecimal(10000)
+        val totalLoanAmount = BigDecimal(10000)
         val paymentMonths = 24
-        val loan = Loan(interestRate, loanAmount, paymentMonths)
+        val loan = Loan(interestRate, totalLoanAmount, paymentMonths)
         val (totalPaid, monthlyPayment, totalInterest) = loan.calculateCredit()
 
         assertEquals(BigDecimal(429.81).setScale(2, RoundingMode.HALF_EVEN), monthlyPayment)

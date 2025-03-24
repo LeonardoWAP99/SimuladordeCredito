@@ -4,7 +4,7 @@ import java.math.BigDecimal
 import java.time.LocalDate
 
 data class LoanRequest(
-    val loanRequestAmount: BigDecimal,
-    val loanTime: Int,
+    val loanRequestedAmount: BigDecimal,
+    val loanTermInMonths: Int,
     val clientBirthDate: LocalDate,
 )

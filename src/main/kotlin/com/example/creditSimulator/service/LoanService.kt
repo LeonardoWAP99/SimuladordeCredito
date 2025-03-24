@@ -16,12 +16,9 @@ class LoanService {
 
         loanInterestRate.rate
 
-        val loan =
-            Loan(
-                interestRate = loanInterestRate.rate,
-                loanAmount = loanRequest.loanRequestAmount,
-                paymentMonths = loanRequest.loanTime,
-            )
+        val loan = Loan(interestRate = loanInterestRate.rate,
+                        loanAmount = loanRequest.loanRequestedAmount,
+                        paymentMonths = loanRequest.loanTermInMonths)
 
         return loan.calculateCredit()
     }
