@@ -1,19 +1,18 @@
 package com.example.creditSimulator.config
 
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.web.SecurityFilterChain
 
 @Configuration
-@EnableWebSecurity
-class SecurityConfig : WebSecurityConfigurerAdapter() {
-
-    override fun configure(http: HttpSecurity) {
+class SecurityConfig {
+    @Bean
+    fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
-            .authorizeRequests()
-            .anyRequest().permitAll() // Permitir todas as requisições sem autenticação
-            .and()
-            .csrf().disable() // Desabilitar CSRF (apenas para testes)
+            .authorizeHttpRequests { auth -> auth.anyRequest().permitAll() } // Permite todas as requisições sem autenticação
+            .csrf { it.disable() } // Desabilita CSRF (apenas para testes)
+
+        return http.build()
     }
 }

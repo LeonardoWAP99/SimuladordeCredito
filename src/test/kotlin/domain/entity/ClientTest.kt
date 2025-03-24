@@ -1,14 +1,14 @@
 package domain.entity
 
 import com.example.creditSimulator.entity.Client
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.time.Clock
 import java.time.Instant
 import java.time.LocalDate
 import java.time.ZoneId
 
-class ClientTest{
+class ClientTest {
     @Test
     fun `test getAge() returns correct age`() {
         val birthDate = LocalDate.of(1999, 5, 10)
@@ -21,6 +21,7 @@ class ClientTest{
 
         assertEquals(expectedAge, client.getAge(fixedClock), "A idade calculada está incorreta")
     }
+
     @Test
     fun `test getAge when birthday is yet to come this year`() {
         val birthDate = LocalDate.of(1999, 5, 10)
@@ -33,6 +34,7 @@ class ClientTest{
 
         assertEquals(expectedAge, client.getAge(fixedClock), "A idade calculada está incorreta")
     }
+
     @Test
     fun `test getAge() when birthday is in a leap year and has occurred`() {
         val birthDate = LocalDate.of(2000, 2, 29)
