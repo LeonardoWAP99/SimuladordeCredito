@@ -13,7 +13,7 @@ class LoanTest {
         val totalLoanAmount = BigDecimal(10000)
         val paymentMonths = 24
         val loan = Loan(interestRate, totalLoanAmount, paymentMonths)
-        val (totalPaid, monthlyPayment, totalInterest) = loan.calculateCredit()
+        val (totalPaid, monthlyPayment, totalInterest) = loan.calculateLoan()
 
         assertEquals(BigDecimal(438.71).setScale(2, RoundingMode.HALF_EVEN), monthlyPayment)
         assertEquals(BigDecimal(10529.04).setScale(2, RoundingMode.HALF_EVEN), totalPaid)
@@ -26,7 +26,7 @@ class LoanTest {
         val totalLoanAmount = BigDecimal(10000.00)
         val paymentMonths = 24
         val loan = Loan(interestRate, totalLoanAmount, paymentMonths)
-        val (totalPaid, monthlyPayment, totalInterest) = loan.calculateCredit()
+        val (totalPaid, monthlyPayment, totalInterest) = loan.calculateLoan()
 
         assertEquals(BigDecimal(440.96).setScale(2, RoundingMode.HALF_EVEN), monthlyPayment)
         assertEquals(BigDecimal(10583.04).setScale(2, RoundingMode.HALF_EVEN), totalPaid)
@@ -39,7 +39,7 @@ class LoanTest {
         val totalLoanAmount = BigDecimal(10000)
         val paymentMonths = 24
         val loan = Loan(interestRate, totalLoanAmount, paymentMonths)
-        val (totalPaid, monthlyPayment, totalInterest) = loan.calculateCredit()
+        val (totalPaid, monthlyPayment, totalInterest) = loan.calculateLoan()
 
         assertEquals(BigDecimal(429.81).setScale(2, RoundingMode.HALF_EVEN), monthlyPayment)
         assertEquals(BigDecimal(10315.44).setScale(2, RoundingMode.HALF_EVEN), totalPaid)
