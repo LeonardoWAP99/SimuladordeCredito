@@ -1,13 +1,11 @@
 package domain.entity
 
 import com.example.creditSimulator.entity.InterestRate
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-
-import org.junit.jupiter.api.Assertions.*
 import java.math.BigDecimal
 
 class InterestRateTest {
-
     @Test
     fun `should return 0_05 for age between 0 and 25`() {
         val interestRateUnder25 = InterestRate(clientAge = 0)
@@ -61,4 +59,4 @@ class InterestRateTest {
         val interestRate100 = InterestRate(clientAge = 100)
         assertEquals(interestRate100.rate.setScale(2), BigDecimal("0.04").setScale(2))
     }
-    }
+}
