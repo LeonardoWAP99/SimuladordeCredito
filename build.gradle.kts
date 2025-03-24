@@ -5,6 +5,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.0.12.RELEASE"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.spring") version "1.6.21"
+	id("org.jlleitschuh.gradle.ktlint") version "10.3.0"
 	
 }
 
@@ -40,4 +41,12 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+ktlint {
+	version.set("0.47.1")
+	android.set(false) // Defina como true se estiver usando Android
+	outputToConsole.set(true) // Exibe o resultado no console
+	outputColorName.set("RED") // Cor de destaque no console
+	ignoreFailures.set(false) // Configura para falhar se houver erros
 }
