@@ -1,0 +1,31 @@
+package com.example.creditSimulator.service
+
+import com.example.creditSimulator.dto.LoanRequest
+import com.example.creditSimulator.dto.LoanResponse
+import com.example.creditSimulator.entity.Client
+import com.example.creditSimulator.entity.InterestRate
+import com.example.creditSimulator.entity.Loan
+import org.springframework.boot.autoconfigure.integration.IntegrationProperties
+
+import org.springframework.stereotype.Service
+import java.math.BigDecimal
+
+
+@Service
+class LoanService {
+
+    fun calculateLoan(loanRequest: LoanRequest): LoanResponse {
+        val client = Client(birthDate = loanRequest.clientBirthDate)
+
+        val loanInterestRate = InterestRate(client.age)
+
+        loanInterestRate.rate
+
+        val loan = Loan(interestRate = loanInterestRate.rate,
+                        loanAmount = loanRequest.loanRequestAmount,
+                        paymentMonths = loanRequest.loanTime)
+
+        return loan.calculateCredit()
+
+    }
+}
