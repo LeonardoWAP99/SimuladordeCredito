@@ -20,8 +20,8 @@ class LoanControllerPerformanceTest {
     @Test
     fun `should perform loan calculation without performance issues`() {
         val requestBody = """{
-    "loanRequestAmount": 10000,
-    "loanTime": 24,
+    "loanRequestedAmount": 10000,
+    "loanTermInMonths": 24,
     "clientBirthDate": "1993-03-23"
      }"""
 
