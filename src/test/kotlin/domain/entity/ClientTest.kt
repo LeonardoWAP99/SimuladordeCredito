@@ -10,7 +10,7 @@ import java.time.ZoneId
 
 class ClientTest {
     @Test
-    fun `test getAge() returns correct age`() { // TODO - REFACTOR NAME FU
+    fun `calculateAge should correctly compute age from birth date`() { // TODO - REFACTOR NAME FU
         val birthDate = LocalDate.of(1999, 5, 10)
 
         val fixedClock = Clock.fixed(Instant.parse("2025-05-11T00:00:00Z"), ZoneId.of("UTC"))
