@@ -4,6 +4,7 @@ import com.example.creditSimulator.`interface`.model.LoanRequestModel
 import com.example.creditSimulator.`interface`.model.LoanResponseModel
 import com.example.creditSimulator.application.useCase.LoanCalculationUseCase
 import com.example.creditSimulator.application.model.LoanRequest
+import com.example.creditSimulator.`interface`.model.LoanSimulationNotification
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -24,7 +25,13 @@ class LoanController(
 
         val loanCalculationResult = loanCalculationUseCase.calculateLoan(request)
 
-        val message = "Empréstimo processado: $loanCalculationResult.totalLoanAmount"
+        val message = LoanSimulationNotification(
+            loanRequestAmount =  loanRequestModel.loanRequestedAmount,
+            loanTermInMonths = loanRequestModel.loanTermInMonths,
+            totalLoanAmount = loanCalculationResult.totalLoanAmount,
+            monthlyPaymentAmount = loanCalculationResult.monthlyPaymentAmount,
+            totalInterestAmount = loanCalculationResult.totalInterestAmount
+        )
         kafkaProducerService.sendMessage("loan-topic", message)
 
         return LoanResponseModel(loanCalculationResult.totalLoanAmount,

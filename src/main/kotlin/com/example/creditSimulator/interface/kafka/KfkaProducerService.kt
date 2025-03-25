@@ -1,12 +1,13 @@
 package com.example.creditSimulator.`interface`.kafka
 
+import com.example.creditSimulator.`interface`.model.LoanSimulationNotification
 import org.springframework.kafka.core.KafkaTemplate
 import org.springframework.stereotype.Service
 
 @Service
-class KafkaProducerService(private val kafkaTemplate: KafkaTemplate<String, String>) {
+class KafkaProducerService(private val kafkaTemplate: KafkaTemplate<String, LoanSimulationNotification>) {
 
-    fun sendMessage(topic: String, message: String) {
+    fun sendMessage(topic: String, message: LoanSimulationNotification) {
         try {
             val future = kafkaTemplate.send(topic, message)
             future.get()  // Espera o resultado do envio e lança exceção se houver erro
