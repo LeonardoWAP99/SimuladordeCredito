@@ -37,5 +37,7 @@ class LoanIntegrationTest {
         )
             .andExpect(status().isOk)
             .andExpect(jsonPath("$.totalLoanAmount").value(10529.04)) // TODO - CHECK ALL FIELDS
+            .andExpect(jsonPath("$.monthlyPaymentAmount").value(438.71))
+            .andExpect(jsonPath("$.totalInterestAmount").value(529.04))
     }
 }
