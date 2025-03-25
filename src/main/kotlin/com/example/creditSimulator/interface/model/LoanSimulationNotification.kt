@@ -1,7 +1,6 @@
 package com.example.creditSimulator.`interface`.model
 
 import java.math.BigDecimal
-import java.time.LocalDate
 
 data class LoanSimulationNotification(
     val loanRequestAmount: BigDecimal,
