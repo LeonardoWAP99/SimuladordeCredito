@@ -1,4 +1,4 @@
-package com.example.creditSimulator.entity
+package com.example.creditSimulator.domain.entities
 
 import java.math.BigDecimal
 import java.math.RoundingMode

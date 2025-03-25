@@ -1,6 +1,6 @@
-package com.example.creditSimulator.entity
+package com.example.creditSimulator.domain.entities
 
-import com.example.creditSimulator.dto.LoanResponse
+import com.example.creditSimulator.application.model.LoanCalculationResult
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -9,7 +9,7 @@ class Loan(
     private val loanRequestedAmount: BigDecimal,
     private val loanTermInMonths: Int
 ) {
-    fun calculateLoan(): LoanResponse {
+    fun calculateLoan(): LoanCalculationResult {
 
         // Convert annual interest rate to monthly interest rate
         //use scale 10 for greater accuracy in calculation
@@ -37,7 +37,7 @@ class Loan(
         // Calculates the total interest paid during the period
         val totalInterestAmount = totalLoanAmount - loanRequestedAmount
 
-        return LoanResponse(totalLoanAmount.round(), monthlyPaymentAmount, totalInterestAmount.round())
+        return LoanCalculationResult(totalLoanAmount.round(), monthlyPaymentAmount, totalInterestAmount.round())
     }
 
     // BigDecimal to 2 decimal places, using the HALF_EVEN rounding method (bank rounding).

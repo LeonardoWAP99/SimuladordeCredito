@@ -1,6 +1,6 @@
 package domain.entity
 
-import com.example.creditSimulator.entity.Loan
+import com.example.creditSimulator.domain.entities.Loan
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
