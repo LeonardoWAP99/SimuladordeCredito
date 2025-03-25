@@ -24,8 +24,8 @@ class LoanIntegrationTest {
         val requestBody =
             """
             {
-                "loanRequestAmount": 10000,
-                "loanTime": 24,
+                "loanRequestedAmount": 10000,
+                "loanTermInMonths": 24,
                 "clientBirthDate": "1999-05-10"
             }
             """.trimIndent()
@@ -36,6 +36,6 @@ class LoanIntegrationTest {
                 .content(requestBody),
         )
             .andExpect(status().isOk)
-            .andExpect(jsonPath("$.loanAmount").value(10529.04))
+            .andExpect(jsonPath("$.totalLoanAmount").value(10529.04)) // TODO - CHECK ALL FIELDS
     }
 }

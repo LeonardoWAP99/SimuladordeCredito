@@ -7,10 +7,10 @@ class InterestRate(clientAge: Int) {
     val rate: BigDecimal
 
     init {
-        this.rate = getCorrectTax(clientAge)
+        this.rate = calculateCorrectRate(clientAge)
     }
 
-    private fun getCorrectTax(age: Int): BigDecimal {
+    private fun calculateCorrectRate(age: Int): BigDecimal {
         return when {
             age <= 25 -> BigDecimal(0.05)
             age in 26..40 -> BigDecimal(0.03)
