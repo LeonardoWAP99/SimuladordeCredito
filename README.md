@@ -4,6 +4,14 @@
 ### subir docker
     docker compose up
     --inicia o kafka
+### Linter foi utilizando o klint
+    ./gradlew ktlintCheck
+    --checar se a erros de formatação no codigo 
+
+    ./gradlew ktlintFormat 
+    --formata partes dos codigos
+
+
 
 # SimuladordeCredito
 
