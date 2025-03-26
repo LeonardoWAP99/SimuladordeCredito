@@ -10,7 +10,7 @@ import java.time.ZoneId
 
 class ClientTest {
     @Test
-    fun `test getAge() returns correct age`() { // TODO - REFACTOR NAME FU
+    fun `calculateAge should correctly calculate age from birth date `() {
         val birthDate = LocalDate.of(1999, 5, 10)
 
         val fixedClock = Clock.fixed(Instant.parse("2025-05-11T00:00:00Z"), ZoneId.of("UTC"))
@@ -21,7 +21,7 @@ class ClientTest {
     }
 
     @Test
-    fun `test getAge when birthday is yet to come this year`() {
+    fun `calculateAge should correctly calculate age from birth date when birthday is yet to come this year`() {
         val birthDate = LocalDate.of(1999, 5, 10)
 
         val fixedClock = Clock.fixed(Instant.parse("2025-01-10T00:00:00Z"), ZoneId.of("UTC"))
@@ -32,7 +32,7 @@ class ClientTest {
     }
 
     @Test
-    fun `test getAge() when birthday is in a leap year and has occurred`() {
+    fun `calculateAge should correctly calculate age from birth date when birthday is in a leap year and has occurred`() {
         val birthDate = LocalDate.of(2000, 2, 29)
 
         val fixedClock = Clock.fixed(Instant.parse("2024-03-01T00:00:00Z"), ZoneId.of("UTC"))
@@ -43,7 +43,7 @@ class ClientTest {
     }
 
     @Test
-    fun `test getAge() when is the birth date`() {
+    fun `calculateAge should correctly calculate age from birth date when is the birth date`() {
         val birthDate = LocalDate.of(2000, 7, 25)
 
         val fixedClock = Clock.fixed(Instant.parse("2025-07-25T00:00:00Z"), ZoneId.of("UTC"))
