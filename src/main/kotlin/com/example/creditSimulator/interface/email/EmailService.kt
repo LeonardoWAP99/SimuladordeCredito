@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service
 
 @Service
 class EmailService(
-    private val javaMailSender: JavaMailSender
+    private val javaMailSender: JavaMailSender,
 ) {
 
     // Método para enviar o e-mail com o conteúdo necessário

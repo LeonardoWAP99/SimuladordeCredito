@@ -7,5 +7,6 @@ data class LoanSimulationNotification(
     val loanTermInMonths: Int,
     val totalLoanAmount: BigDecimal,
     val monthlyPaymentAmount: BigDecimal,
-    val totalInterestAmount: BigDecimal
+    val totalInterestAmount: BigDecimal,
+    val clientEmail: String,
 )

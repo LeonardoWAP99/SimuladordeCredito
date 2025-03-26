@@ -3,20 +3,17 @@ package com.example.creditSimulator.`interface`.kafka
 import com.example.creditSimulator.`interface`.email.EmailService
 import com.example.creditSimulator.`interface`.model.LoanSimulationNotification
 import org.springframework.kafka.annotation.KafkaListener
-import org.springframework.mail.javamail.JavaMailSender
-import org.springframework.mail.javamail.MimeMessageHelper
 import org.springframework.stereotype.Service
-
 
 @Service
 class KafkaConsumerService(
-    private val emailService: EmailService
+    private val emailService: EmailService,
 ) {
 
     @KafkaListener(topics = ["loan-topic"], groupId = "email-consumer-group")
     fun listen(loanSimulationNotification: LoanSimulationNotification) {
         println("Mensagem recebida: $loanSimulationNotification")
-       sendEmail(loanSimulationNotification)
+        sendEmail(loanSimulationNotification)
     }
 
     private fun sendEmail(loanSimulationNotification: LoanSimulationNotification) {
@@ -34,6 +31,6 @@ class KafkaConsumerService(
       
         """.trimIndent()
 
-        emailService.sendEmail("leo.willers.alves@gmail.com", subject, body)
+        emailService.sendEmail(loanSimulationNotification.clientEmail, subject, body)
     }
 }

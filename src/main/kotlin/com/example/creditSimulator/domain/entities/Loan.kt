@@ -7,20 +7,18 @@ import java.math.RoundingMode
 class Loan(
     private val interestRate: BigDecimal,
     private val loanRequestedAmount: BigDecimal,
-    private val loanTermInMonths: Int
+    private val loanTermInMonths: Int,
 ) {
     fun calculateLoan(): LoanCalculationResult {
-
         // Convert annual interest rate to monthly interest rate
-        //use scale 10 for greater accuracy in calculation
+        // use scale 10 for greater accuracy in calculation
         val monthlyInterestRate = interestRate.divide(BigDecimal("12"), 10, RoundingMode.HALF_EVEN)
 
         // Calculates the total amount that will be multiplied by the monthly interest rate
         val numerator = loanRequestedAmount.multiply(monthlyInterestRate)
 
-
         // Calculates the value of (1 + monthly interest rate)^-n, where n is the number of months
-        //use scale 10 for greater accuracy in calculation
+        // use scale 10 for greater accuracy in calculation
         val discountFactor =
             BigDecimal.valueOf(Math.pow(BigDecimal.ONE.add(monthlyInterestRate).toDouble(), (-loanTermInMonths).toDouble()))
                 .setScale(10, RoundingMode.HALF_EVEN)

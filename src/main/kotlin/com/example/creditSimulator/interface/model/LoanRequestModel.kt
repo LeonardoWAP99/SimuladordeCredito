@@ -6,5 +6,6 @@ import java.time.LocalDate
 data class LoanRequestModel(
     val loanRequestedAmount: BigDecimal,
     val loanTermInMonths: Int,
-    val clientBirthDate: LocalDate
+    val clientBirthDate: LocalDate,
+    val clientEmail: String
 )
