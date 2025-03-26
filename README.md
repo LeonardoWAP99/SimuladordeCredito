@@ -2,8 +2,8 @@
 
 ## Iniciar aplicação
 ### subir docker
-    docker compose up
-    --inicia o kafka
+    docker compose up --build
+    --sobe todo o projeto
 ### Linter foi utilizando o klint
     ./gradlew ktlintCheck
     --checar se a erros de formatação no codigo 
@@ -16,8 +16,8 @@
 # SimuladordeCredito
 
 ## 1. Visão Geral do Projeto:
-### 🛠️ Teste Prático de Engenharia Backend - Simulador de Crédito
-Este repositório contém a implementação de um simulador de crédito, projetado para avaliar habilidades em desenvolvimento backend, incluindo APIs RESTful, cálculos financeiros, otimização de desempenho, testes automatizados e documentação.
+### 🛠️ Simulador de Crédito - Backend
+Este projeto consiste em uma API backend para simulação de crédito, permitindo que os usuários insiram informações sobre o empréstimo desejado e recebam cálculos detalhados sobre os valores das parcelas, total a ser pago e juros pago.
 
 ### Tecnologias Utilizadas:
 #### Kotlin:
@@ -32,17 +32,8 @@ Docker foi usado para criar um container Kafka, garantindo um ambiente isolado e
 #### Kafka:
 Kafka gerencia o envio de e-mails com a simulação de crédito de forma assíncrona, melhorando a escalabilidade.
 
-
-
-
-
-
-
-
-
-
-### Padrão de Arquitetura - MVVM:
-Parão de arquitetura xxxxxx e utilizando boas patricas como clean-code
+### Padrão de Arquitetura - clean Architecture:
+Parão de arquitetura **clean Architecture** 
 
 ## 1. creditSimulator
 Pasta raiz do projeto.
@@ -65,24 +56,18 @@ Pasta raiz do projeto.
 
 ## 4. interface:
 #### 4.1. controllers
-* O LoanController recebe requisições HTTP para calcular simulações de empréstimo, processa os dados de entrada e chama a lógica de negócios. Ele também publica os resultados no Kafka para envio de notificações assíncronas. Por fim, retorna a resposta com os detalhes da simulação de crédito.
+* O **LoanController** recebe requisições HTTP para calcular simulações de empréstimo, processa os dados de entrada e chama a lógica de negócios. Ele também publica os resultados no Kafka para envio de notificações assíncronas. Por fim, retorna a resposta com os detalhes da simulação de crédito.
 #### 4.2. model
 *  O **LoanRequestModel** recebe a entrada do cliente, o **LoanResponseModel** retorna os resultados da simulação ao cliente e o **LoanSimulationNotification** envia esses dados para o Kafka, permitindo o envio de notificações assíncronas.
+#### 4.3. kafka
+* O **KafkaProducerService** é responsável por enviar mensagens para um tópico Kafka. Ele utiliza um KafkaTemplate para publicar a mensagem de forma assíncrona e aguarda a confirmação do envio e classe **KafkaProducerConfig** configura o produtor Kafka para a aplicação.
 
-## 4.Infrastructure :
+## 3. Diagrama de sequencia
 
-
-
-
-
-
+![TLH1Zjf04BnRyXzQv098y00EqIAl3mXBGOOye1atx2JsZ3Cp9knxSeZsaDC-mHzBpzYm9W4VfslALLrbFrc7nZLL6KSed3RmrPA9epZQwpEC4gomG2W8bdKf1RQ_srzw19zAUNnn-xAXE09-QgQGGjQe78moZIgd7mrPDmAqaEKFG0cMeYdHISrusvGzFBc7N-FXEyB6](https://github.com/user-attachments/assets/44e2f4ce-0f3a-4a10-acc2-1b7d2390b2e5)
 
 
 
-## 3. Classes Criadas no Projeto
-
-
-## 4. Entidades 
 
 
 
