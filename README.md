@@ -1,4 +1,4 @@
-# SimuladordeCredito
+# Simulador de Crédito
 
 ## Iniciar aplicação
 1. subir docker para inicializar o kafka
