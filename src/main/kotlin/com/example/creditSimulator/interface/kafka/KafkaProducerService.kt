@@ -10,7 +10,7 @@ class KafkaProducerService(private val kafkaTemplate: KafkaTemplate<String, Loan
     fun sendMessage(topic: String, message: LoanSimulationNotification) {
         try {
             val future = kafkaTemplate.send(topic, message)
-            future.get() // Espera o resultado do envio e lança exceção se houver erro
+            future.get()
             println("Mensagem enviada com sucesso para o tópico $topic: $message")
         } catch (e: Exception) {
             println("Erro ao enviar mensagem para o tópico $topic: ${e.message}")

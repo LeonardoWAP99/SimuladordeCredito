@@ -19,15 +19,15 @@ class KafkaConsumerConfig(private val kafkaProperties: KafkaProperties) {
     @Bean
     fun consumerFactory(): ConsumerFactory<String, LoanSimulationNotification> {
         val config = mapOf(
-            ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG to "localhost:9092", // Verifique se o Kafka está rodando
+            ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG to "localhost:9092",
             ConsumerConfig.GROUP_ID_CONFIG to "email-consumer-group",
             ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG to StringDeserializer::class.java,
             ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG to JsonDeserializer::class.java,
         )
 
         val jsonDeserializer = JsonDeserializer(LoanSimulationNotification::class.java).apply {
-            addTrustedPackages("*") // Adiciona pacotes confiáveis
-            setRemoveTypeHeaders(false) // Não remove o cabeçalho de tipo
+            addTrustedPackages("*")
+            setRemoveTypeHeaders(false)
         }
 
         return DefaultKafkaConsumerFactory(config, StringDeserializer(), jsonDeserializer)

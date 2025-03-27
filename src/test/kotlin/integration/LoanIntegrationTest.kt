@@ -26,7 +26,8 @@ class LoanIntegrationTest {
             {
                 "loanRequestedAmount": 10000,
                 "loanTermInMonths": 24,
-                "clientBirthDate": "1999-05-10"
+                "clientBirthDate": "1999-05-10",
+                "clientEmail": "email@example.com"
             }
             """.trimIndent()
 
