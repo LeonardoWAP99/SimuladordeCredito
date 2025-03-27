@@ -17,8 +17,10 @@ import java.util.*
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 class LoanIntegrationTest {
+
     @Autowired
     private lateinit var mockMvc: MockMvc
+
     @Test
     fun `should calculate loan correctly`() {
         val requestBody =
