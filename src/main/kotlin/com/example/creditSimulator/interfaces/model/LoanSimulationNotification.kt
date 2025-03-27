@@ -1,4 +1,4 @@
-package com.example.creditSimulator.`interface`.model
+package com.example.creditSimulator.interfaces.model
 
 import java.math.BigDecimal
 

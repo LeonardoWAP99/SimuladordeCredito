@@ -1,4 +1,4 @@
-package com.example.creditSimulator.`interface`.email
+package com.example.creditSimulator.interfaces.email
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

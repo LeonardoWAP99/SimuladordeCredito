@@ -1,6 +1,6 @@
-package com.example.creditSimulator.`interface`.kafka
+package com.example.creditSimulator.interfaces.kafka
 
-import com.example.creditSimulator.`interface`.model.LoanSimulationNotification
+import com.example.creditSimulator.interfaces.model.LoanSimulationNotification
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties

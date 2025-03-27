@@ -1,10 +1,10 @@
-package com.example.creditSimulator.`interface`.controllers
+package com.example.creditSimulator.interfaces.controllers
 import com.example.creditSimulator.application.model.LoanRequest
 import com.example.creditSimulator.application.useCase.LoanCalculationUseCase
-import com.example.creditSimulator.`interface`.kafka.KafkaProducerService
-import com.example.creditSimulator.`interface`.model.LoanRequestModel
-import com.example.creditSimulator.`interface`.model.LoanResponseModel
-import com.example.creditSimulator.`interface`.model.LoanSimulationNotification
+import com.example.creditSimulator.interfaces.kafka.KafkaProducerService
+import com.example.creditSimulator.interfaces.model.LoanRequestModel
+import com.example.creditSimulator.interfaces.model.LoanResponseModel
+import com.example.creditSimulator.interfaces.model.LoanSimulationNotification
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -33,8 +33,9 @@ class LoanController(
             totalLoanAmount = loanCalculationResult.totalLoanAmount,
             monthlyPaymentAmount = loanCalculationResult.monthlyPaymentAmount,
             totalInterestAmount = loanCalculationResult.totalInterestAmount,
-            clientEmail = loanRequestModel.clientEmail
+            clientEmail = loanRequestModel.clientEmail,
         )
+
         kafkaProducerService.sendMessage("loan-topic", message)
 
         return LoanResponseModel(
