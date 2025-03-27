@@ -10,8 +10,8 @@ class SecurityConfig {
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
-            .authorizeHttpRequests { auth -> auth.anyRequest().permitAll() } // Permite todas as requisições sem autenticação
-            .csrf { it.disable() } // Desabilita CSRF (apenas para testes)
+            .authorizeHttpRequests { auth -> auth.anyRequest().permitAll() }
+            .csrf { it.disable() }
 
         return http.build()
     }

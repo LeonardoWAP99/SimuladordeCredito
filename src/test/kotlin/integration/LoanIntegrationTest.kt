@@ -11,14 +11,14 @@ import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import java.util.*
 
 @SpringBootTest(classes = [CreditSimulatorApplication::class])
 @AutoConfigureMockMvc
-@ActiveProfiles("test") // Usa um perfil de teste para configurações específicas
+@ActiveProfiles("test")
 class LoanIntegrationTest {
     @Autowired
     private lateinit var mockMvc: MockMvc
-
     @Test
     fun `should calculate loan correctly`() {
         val requestBody =
@@ -26,7 +26,8 @@ class LoanIntegrationTest {
             {
                 "loanRequestedAmount": 10000,
                 "loanTermInMonths": 24,
-                "clientBirthDate": "1999-05-10"
+                "clientBirthDate": "1999-05-10",
+                "clientEmail": "email@example.com"
             }
             """.trimIndent()
 
@@ -36,6 +37,8 @@ class LoanIntegrationTest {
                 .content(requestBody),
         )
             .andExpect(status().isOk)
-            .andExpect(jsonPath("$.totalLoanAmount").value(10529.04)) // TODO - CHECK ALL FIELDS
+            .andExpect(jsonPath("$.totalLoanAmount").value(10529.04))
+            .andExpect(jsonPath("$.monthlyPaymentAmount").value(438.71))
+            .andExpect(jsonPath("$.totalInterestAmount").value(529.04))
     }
 }

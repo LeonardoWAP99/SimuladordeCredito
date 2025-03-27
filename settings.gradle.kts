@@ -2,7 +2,7 @@ rootProject.name = "creditSimulator"
 
 pluginManagement {
     repositories {
-        gradlePluginPortal() // 🔥 ESSENCIAL para encontrar plugins Gradle
+        gradlePluginPortal()
         mavenCentral()
         google()
     }

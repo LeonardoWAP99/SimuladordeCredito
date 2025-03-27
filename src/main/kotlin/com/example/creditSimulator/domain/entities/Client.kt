@@ -4,8 +4,10 @@ import java.time.Clock
 import java.time.LocalDate
 import java.time.Period
 
-class Client(val birthDate: LocalDate,
-             clock: Clock = Clock.systemDefaultZone()) {
+class Client(
+    val birthDate: LocalDate,
+    clock: Clock = Clock.systemDefaultZone(),
+) {
     val age: Int
 
     init {
@@ -13,8 +15,7 @@ class Client(val birthDate: LocalDate,
         this.age = calculateAge(currentDate)
     }
 
-     private fun calculateAge(currentDate: LocalDate): Int {
-
+    private fun calculateAge(currentDate: LocalDate): Int {
         return Period.between(this.birthDate, currentDate).years
     }
 }

@@ -1,6 +1,19 @@
 spring:
+  mail:
+    host: smtp.gmail.com # SMTP do seu provedor de e-mail
+    port: 587               # Porta do servidor SMTP
+    username: "creditsimulate@gmail.com"  # Seu e-mail
+    password: "CreditSimulate99"  # Sua senha de e-mail
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   kafka:
     producer:
+      bootstrap-servers: localhost:9092
+    consumer:
       bootstrap-servers: localhost:9092
     listener:
       missing-topics-fatal: false
