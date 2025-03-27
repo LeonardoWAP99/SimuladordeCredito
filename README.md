@@ -43,6 +43,8 @@ Docker foi usado para criar um container Kafka, garantindo um ambiente isolado e
 
 #### Kafka:
 Kafka gerencia o envio de e-mails com a simulação de crédito de forma assíncrona, melhorando a escalabilidade.
+#### JavaMailSender:
+O JavaMailSender é uma interface do Spring Boot que facilita o envio de e-mails em aplicações Java. 
 
 ### Padrão de Arquitetura - clean Architecture:
 Parão de arquitetura **clean Architecture** 
@@ -53,7 +55,7 @@ Parão de arquitetura **clean Architecture**
   ####  UseCase
 *    Contém a lógica específica de um caso de uso, coordenando o fluxo de dados e interagindo com o Domain para realizar as ações necessárias. a logica seria o LoanCalculationUseCase.
 ####   Model
-*    Representa dados de entrada e saída para a aplicação. É um objeto que transporta informações entre as camadas. logo temos o LoanCalculationResult e o LoanRequest 
+*    Representa dados de entrada e saída para a aplicação. É um objeto que transporta informações entre as camadas. logo temos o LoanCalculationResult e o LoanRequest
 
 
 
